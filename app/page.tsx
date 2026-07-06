@@ -7,3 +7,4 @@ export default function Home() {
     </div>
   );
 }
+// mongodb+srv://sohail:sohail786@cluster0.wqnr3vh.mongodb.net/
