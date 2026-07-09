@@ -6,6 +6,8 @@ import User from "@/models/userModels";
 export async function POST(req:NextRequest) {
     try {
         await connectDB()
+        console.log("hi");
+        
         
     } catch (error) {
         
