@@ -12,3 +12,9 @@ export async function comparePassword(password:string,hashed:string) {
     
 }
 
+
+export async function signToken(payload:{}) {
+    return jwt.sign(payload,process.env.TOKEN!,{expiresIn:"7d"})
+    
+}
+
