@@ -18,3 +18,7 @@ export async function signToken(payload:{}) {
     
 }
 
+export function verifyToken(token:string){
+    return jwt.verify(token,process.env.TOKEN!)
+
+}
