@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { verifyToken } from "./auth";
 interface DecodeUser{
     id:string;
+    name:string
     role:"admin"|"candidate" |"employer"
 
 }
