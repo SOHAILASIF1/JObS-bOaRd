@@ -10,7 +10,7 @@ export default async function Signup(){
     })
 
 
-    function handleChange(e:React.FormEvent) {
+    function handleSubmit(e:React.FormEvent) {
         e.preventDefault()
         
     }
