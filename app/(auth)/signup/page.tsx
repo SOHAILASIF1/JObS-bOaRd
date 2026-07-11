@@ -10,10 +10,14 @@ export default async function Signup(){
     })
 
 
-    function handleSubmit(e:React.FormEvent) {
+    async function handleSubmit(e:React.FormEvent) {
         e.preventDefault()
         
     }
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="max-w-md mx-auto mt-16 p-6 border rounded-lg">
       <h1 className="text-2xl font-bold mb-4">Sign Up</h1>
