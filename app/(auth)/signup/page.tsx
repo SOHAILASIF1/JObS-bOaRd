@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 
-export default async function Signup(){
+export default  function Signup(){
     const [formData,setFormData]=useState({
         name:"",
         email:"",
