@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import {useRouter} from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export default function Signup() {
     const [formData, setFormData] = useState({
@@ -11,7 +11,7 @@ export default function Signup() {
     })
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
-    const router=useRouter()
+    const router = useRouter()
 
 
     async function handleSubmit(e: React.FormEvent) {
@@ -19,25 +19,25 @@ export default function Signup() {
         setLoading(true)
         setError("")
         try {
-            const res=await fetch("/api/auth/signup",{
-                method:"POST",
-                headers:{"Content-Type":"application/json"},
-                body:JSON.stringify(formData)
+            const res = await fetch("/api/auth/signup", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
             })
-            const data=await res.json()
+            const data = await res.json()
 
             if (!res.ok) {
                 setError(data.error || "Signup Failed")
                 setLoading(false)
                 return
-                
+
             }
             router.push("/dashboard")
             router.refresh()
         } catch (error) {
-             setError("Kuch masla ho gaya, dobara try karein");
-      setLoading(false);
-            
+            setError("Kuch masla ho gaya, dobara try karein");
+            setLoading(false);
+
         }
 
     }
