@@ -46,7 +46,7 @@ export default function Signup() {
     };
 
     return (
-        <div>
+        <div className='h-full w-full flex items-center justify-center'>
         <div className="max-w-md mx-auto mt-16 p-6 border rounded-lg   ">
             <h1 className="text-2xl font-bold mb-4">Sign Up</h1>
 
