@@ -46,7 +46,7 @@ export default function Signup() {
     };
 
     return (
-        <div className="max-w-md mx-auto mt-16 p-6 border rounded-lg">
+        <div className="max-w-md mx-auto mt-16 p-6 border rounded-lg flex items-center justify-center">
             <h1 className="text-2xl font-bold mb-4">Sign Up</h1>
 
             <form onSubmit={handleSubmit} className="space-y-4">
