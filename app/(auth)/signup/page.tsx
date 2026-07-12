@@ -46,6 +46,7 @@ export default function Signup() {
     };
 
     return (
+        <div>
         <div className="max-w-md mx-auto mt-16 p-6 border rounded-lg   ">
             <h1 className="text-2xl font-bold mb-4">Sign Up</h1>
 
@@ -99,6 +100,7 @@ export default function Signup() {
                     {loading ? "Creating account..." : "Sign Up"}
                 </button>
             </form>
+        </div>
         </div>
     );
 }
