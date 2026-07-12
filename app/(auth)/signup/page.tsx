@@ -35,6 +35,8 @@ export default function Signup() {
             router.push("/dashboard")
             router.refresh()
         } catch (error) {
+             setError("Kuch masla ho gaya, dobara try karein");
+      setLoading(false);
             
         }
 
