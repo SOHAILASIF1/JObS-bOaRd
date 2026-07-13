@@ -7,7 +7,7 @@ import { useState } from "react"
 type NavbarProps = {
   role?: "candidate" | "employer" | "admin" | null
 }
-const Navbar = () => {
+const Navbar = ({ role = null }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false)
   const router = useRouter()
   const handleLogout = async () => {
@@ -16,21 +16,21 @@ const Navbar = () => {
     router.refresh()
   }
   const guestLinks = (<>
-   <Link href="/jobs" className="hover:text-amber-400 transition-colors">
-        Browse Jobs
-      </Link>
-      <Link href="/login" className="hover:text-amber-400 transition-colors">
-        Login
-      </Link>
-      <Link
-        href="/signup"
-        className="rounded-md bg-amber-400 px-4 py-1.5 text-sm font-semibold text-neutral-900 hover:bg-amber-300 transition-colors"
-      >
-        Sign Up
-      </Link>
+    <Link href="/jobs" className="hover:text-amber-400 transition-colors">
+      Browse Jobs
+    </Link>
+    <Link href="/login" className="hover:text-amber-400 transition-colors">
+      Login
+    </Link>
+    <Link
+      href="/signup"
+      className="rounded-md bg-amber-400 px-4 py-1.5 text-sm font-semibold text-neutral-900 hover:bg-amber-300 transition-colors"
+    >
+      Sign Up
+    </Link>
 
   </>)
-  const candidateLinks=(
+  const candidateLinks = (
     <>
       <Link href="/jobs" className="hover:text-amber-400 transition-colors">
         Browse Jobs
@@ -46,7 +46,7 @@ const Navbar = () => {
       </button>
     </>
   )
-    const employerLinks = (
+  const employerLinks = (
     <>
       <Link href="/jobs/post" className="hover:text-amber-400 transition-colors">
         Post a Job
@@ -62,6 +62,8 @@ const Navbar = () => {
       </button>
     </>
   );
+   const links=role==="candidate"?candidateLinks : role==="employer"? employerLinks : guestLinks
+
   return (
     <nav className="sticky top-0 z-50 border-b border-neutral-800 bg-[#14171F]/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
