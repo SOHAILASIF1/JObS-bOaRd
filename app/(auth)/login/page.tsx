@@ -4,10 +4,10 @@ import { useRouter } from 'next/navigation';
 
 export default function Signup() {
     const [formData, setFormData] = useState({
-        name: "",
+        
         email: "",
         password: "",
-        role: ""
+        
     })
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ export default function Signup() {
             const data = await res.json()
 
             if (!res.ok) {
-                setError(data.error || "Signup Failed")
+                setError(data.error || "Login Failed ")
                 setLoading(false)
                 return
 
