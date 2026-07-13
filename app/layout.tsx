@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { getUserFromToken } from "@/lib/getUserFromToken";
+import Navbar from "@/Component/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,13 +25,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const user=getUserFromToken()
+  const user=await getUserFromToken()
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+
+      <body className="min-h-full flex flex-col">
+         <Navbar role={user?.role as "candidate" | "employer" | "admin" | null ?? null} />
+        {children}
+        </body>
     </html>
   );
 }
