@@ -30,6 +30,22 @@ const Navbar = () => {
       </Link>
 
   </>)
+  const candidateLinks=(
+    <>
+      <Link href="/jobs" className="hover:text-amber-400 transition-colors">
+        Browse Jobs
+      </Link>
+      <Link href="/applications" className="hover:text-amber-400 transition-colors">
+        My Applications
+      </Link>
+      <button
+        onClick={handleLogout}
+        className="rounded-md border border-neutral-700 px-4 py-1.5 text-sm hover:border-amber-400 hover:text-amber-400 transition-colors"
+      >
+        Logout
+      </button>
+    </>
+  )
   return (
     <nav className="sticky top-0 z-50 border-b border-neutral-800 bg-[#14171F]/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
