@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { getUserFromToken } from "@/lib/getUserFromToken";
 import Navbar from "@/Component/Navbar";
+import Footer from "@/Component/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col">
          <Navbar role={user?.role as "candidate" | "employer" | "admin" | null ?? null} />
         {children}
+        <Footer/>
         </body>
     </html>
   );
