@@ -1,6 +1,7 @@
 import { connectDB } from "@/lib/dbConnection";
 import { getUserFromToken } from "@/lib/getUserFromToken";
 import { jobSchema } from "@/lib/validation/job";
+import jobModel from "@/models/jobModel";
 // import { connect } from "http2";
 import { NextResponse, NextRequest } from "next/server";
 
@@ -28,7 +29,7 @@ export async function POST(req: NextRequest) {
 
         }
         await connectDB()
-        const job = await Job.create({
+        const job = await jobModel.create({
             ...parsed.data,
             employerId: user.id
         })
