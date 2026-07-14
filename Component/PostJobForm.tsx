@@ -6,6 +6,7 @@
 
 
 
+import { Briefcase, Building2, DollarSign, FileText, ListChecks, Loader2, MapPin } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
@@ -21,7 +22,7 @@ const JOB_TYPES = [
 ];
 
 const PostJobForm = () => {
-    const router=useRouter
+    const router=useRouter()
      const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string[]>>({});
   const [serverError, setServerError] = useState("");
