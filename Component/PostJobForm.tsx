@@ -25,6 +25,40 @@ const PostJobForm = () => {
      const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string[]>>({});
   const [serverError, setServerError] = useState("");
+
+
+  async function handleSubmit(e:React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setLoading(true)
+    setErrors({})
+    setServerError("")
+
+    const formData=new FormData(e.currentTarget)
+    const payload=Object.fromEntries(formData.entries())
+    try {
+      const res=await fetch("/api/job",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(payload)
+      })
+      const data=await res.json()
+      if (!res.ok) {
+        if (data.issues ) {
+          setErrors(data.issues)
+          
+        }else setServerError(data.error|| "Something gone wrong")
+        setLoading(false)
+        return
+        
+      }
+      router.push("/dashboard/employer/jobs")
+    } catch (error) {
+       setServerError("Network error, dobara try karein");
+      setLoading(false);
+      
+    }
+    
+  }
   return (
     <form
       onSubmit={handleSubmit}
