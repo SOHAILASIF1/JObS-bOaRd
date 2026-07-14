@@ -1,3 +1,4 @@
+import PostJobForm from "@/Component/PostJobForm";
 import { getUserFromToken } from "@/lib/getUserFromToken";
 import { redirect } from "next/navigation";
 
