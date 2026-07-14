@@ -2,40 +2,40 @@ import { connectDB } from "@/lib/dbConnection";
 import { getUserFromToken } from "@/lib/getUserFromToken";
 import { jobSchema } from "@/lib/validation/job";
 // import { connect } from "http2";
-import { NextResponse,NextRequest } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
 
-export async function POST(req:NextRequest){
+export async function POST(req: NextRequest) {
     try {
-        const user =await getUserFromToken()
-        if (!user || user.role!=="employer") {
+        const user = await getUserFromToken()
+        if (!user || user.role !== "employer") {
             return NextResponse.json(
                 {
-                    error:"Only Employer Allow to post"
+                    error: "Only Employer Allow to post"
 
                 },
-                {status:403}
+                { status: 403 }
             )
-            
+
         }
-        const body=await req.json()
-        const parsed=jobSchema.safeParse(body)
+        const body = await req.json()
+        const parsed = jobSchema.safeParse(body)
         if (!parsed.success) {
             return NextResponse.json({
-                error:"Validation Failed",
-                issues:parsed.error.flatten().fieldErrors
-            },{status:400})
-            
+                error: "Validation Failed",
+                issues: parsed.error.flatten().fieldErrors
+            }, { status: 400 })
+
         }
         await connectDB()
-        const job=await Job.create({
+        const job = await Job.create({
             ...parsed.data,
-            employerId:user.id
+            employerId: user.id
         })
-        return  NextResponse.json({message:"Job Posted",job},{status:201})
+        return NextResponse.json({ message: "Job Posted", job }, { status: 201 })
     } catch (error) {
-         console.error("Job post error:", err);
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
-        
+        console.error("Job post error:", error);
+        return NextResponse.json({ error: "Server error" }, { status: 500 });
+
     }
 }
