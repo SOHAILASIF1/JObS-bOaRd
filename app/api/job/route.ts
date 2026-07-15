@@ -5,6 +5,24 @@ import jobModel from "@/models/jobModel";
 // import { connect } from "http2";
 import { NextResponse, NextRequest } from "next/server";
 
+export async function GET() {
+    try {
+        await connectDB()
+        const jobs=await jobModel.find().sort({createdAt:-1})
+        return NextResponse.json({success:true,jobs})
+        
+    } catch (error) {
+         console.error("GET /api/jobs error:", error);
+    return NextResponse.json(
+      { success: false, message: "Failed to fetch jobs" },
+      { status: 500 }
+    );
+        
+        
+    }
+    
+}
+
 
 export async function POST(req: NextRequest) {
     try {
