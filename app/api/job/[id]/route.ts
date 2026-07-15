@@ -59,6 +59,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
             },{status:400})
             
         }
+        const up
     } catch (error) {
 
     }
