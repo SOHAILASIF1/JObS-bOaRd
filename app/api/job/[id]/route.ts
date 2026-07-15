@@ -54,6 +54,9 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
         const body=await req.json()
         const validation=jobSchema.safeParse(body) 
         if (!validation.success) {
+            return NextResponse.json({
+                error:validation.error.issues[0].message
+            },{status:400})
             
         }
     } catch (error) {
