@@ -53,7 +53,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
         }
         const body=await req.json()
         const validation=jobSchema.safeParse(body) 
-        if (condition) {
+        if (!validation.success) {
             
         }
     } catch (error) {
