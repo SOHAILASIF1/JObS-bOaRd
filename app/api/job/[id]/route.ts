@@ -39,27 +39,27 @@ export async function GET(
 
 export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
-        const {id}=await params
-        const user=await getUserFromToken()
-        if (!user ||user.role !=="employer") {
-            return NextResponse.json({error:'Unauthorized'},{status:401})
-            
+        const { id } = await params
+        const user = await getUserFromToken()
+        if (!user || user.role !== "employer") {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+
         }
         await connectDB()
-        const job=await jobModel.findById(id)
+        const job = await jobModel.findById(id)
         if (!job) {
-            return NextResponse.json({error:"Job not found"},{status:404})
-            
+            return NextResponse.json({ error: "Job not found" }, { status: 404 })
+
         }
-        const body=await req.json()
-        const validation=jobSchema.safeParse(body) 
+        const body = await req.json()
+        const validation = jobSchema.safeParse(body)
         if (!validation.success) {
             return NextResponse.json({
-                error:validation.error.issues[0].message
-            },{status:400})
-            
+                error: validation.error.issues[0].message
+            }, { status: 400 })
+
         }
-        const updatedJob=await jobModel.findByIdAndUpdate(id,{...validation.data,status:"pending"},{new:true})
+        const updatedJob = await jobModel.findByIdAndUpdate(id, { ...validation.data, status: "pending" }, { new: true })
         return NextResponse.json()
     } catch (error) {
 
