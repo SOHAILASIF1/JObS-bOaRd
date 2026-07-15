@@ -1,7 +1,7 @@
 import { connectDB } from "@/lib/dbConnection";
 import { getUserFromToken } from "@/lib/getUserFromToken";
 import jobModel from "@/models/jobModel";
-import { PlusCircle } from "lucide-react";
+import { Briefcase, PlusCircle } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
