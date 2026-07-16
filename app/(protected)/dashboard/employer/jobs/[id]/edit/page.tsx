@@ -20,7 +20,7 @@ const EditJobPage = async({params}:{params:Promise<{id:string}>}) => {
     notFound()
     
   }
-  if ((job as any).employerId.toSting()!==user.id) {
+  if ((job as any).employerId.toString()!==user.id) {
     redirect("/dashboard/employer/jobs")
     
   }
