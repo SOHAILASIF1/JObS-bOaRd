@@ -27,13 +27,15 @@ export default function EditJobForm({ job }: { job: Job }) {
         requirements: job.requirements,
 
     })
-    const [error,setError]=useState("")
-    const [loading,setLoading]=useState(false)
-    const router=useRouter()
+    const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
+    const router = useRouter()
     const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-    
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    ) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+    const handleSubmit=async
+
+
 }
