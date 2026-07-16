@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from "next/router"
 import { useState } from "react"
 
 type Job = {
@@ -26,4 +27,13 @@ export default function EditJobForm({ job }: { job: Job }) {
         requirements: job.requirements,
 
     })
+    const [error,setError]=useState("")
+    const [loading,setLoading]=useState(false)
+    const router=useRouter()
+    const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+    
 }
