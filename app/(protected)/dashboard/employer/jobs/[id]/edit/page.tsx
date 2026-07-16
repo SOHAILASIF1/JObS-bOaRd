@@ -1,6 +1,7 @@
 import { connectDB } from '@/lib/dbConnection'
 import { getUserFromToken } from '@/lib/getUserFromToken'
-import { redirect } from 'next/navigation'
+import jobModel from '@/models/jobModel'
+import { notFound, redirect } from 'next/navigation'
 import React from 'react'
 
 const EditJobPage = async({params}:{params:Promise<{id:string}>}) => {
@@ -14,8 +15,23 @@ const EditJobPage = async({params}:{params:Promise<{id:string}>}) => {
     
   }
   await connectDB()
+  const job=await jobModel.findById(id).lean()
+  if (!job) {
+    notFound()
+    
+  }
+  if ((job as any).employerId.toSting()!==user.id) {
+    redirect("/dashboard/employer/jobs")
+    
+  }
+
   return (
-    <div>page</div>
+     <div className="min-h-screen bg-gray-50 px-6 py-10 md:px-12">
+      <div className="mx-auto max-w-2xl">
+        <h1 className="mb-8 text-2xl font-bold text-gray-900">Edit Job</h1>
+        <EditJobForm job={JSON.parse(JSON.stringify(job))} />
+      </div>
+    </div>
   )
 }
 
