@@ -98,12 +98,12 @@ export default function EditJobForm({ job }: { job: Job }) {
                     />
                 </div>
                 <div>
-                    <label className="mb-1  text-black block text-sm font-medium text-gray-700">Location</label>
+                    <label className="mb-1  block text-sm font-medium text-gray-700">Location</label>
                     <input
                         name="location"
                         value={formData.location}
                         onChange={handleChange}
-                        className="w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:border-indigo-500 focus:outline-none"
+                        className="w-full  text-black rounded-lg border border-gray-300 p-2.5 text-sm focus:border-indigo-500 focus:outline-none"
                         required
                     />
                 </div>
