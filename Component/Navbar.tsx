@@ -48,7 +48,7 @@ const Navbar = ({ role = null }: NavbarProps) => {
   )
   const employerLinks = (
     <>
-      <Link href="/jobs/post-job" className="hover:text-amber-400 transition-colors">
+      <Link href="/dashboard/employer/post-job" className="hover:text-amber-400 transition-colors">
         Post a Job
       </Link>
       <Link href="/dashboard/employer/jobs" className="hover:text-amber-400 transition-colors">
