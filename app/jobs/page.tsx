@@ -1,6 +1,8 @@
 export const dynamic="force-dynamic"
+import JobCard from '@/Component/JobCard'
 import { connectDB } from '@/lib/dbConnection'
 import jobModel from '@/models/jobModel'
+import { Briefcase } from 'lucide-react'
 import React from 'react'
 
 const JobPage = async() => {
