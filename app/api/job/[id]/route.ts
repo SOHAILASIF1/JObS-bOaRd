@@ -73,12 +73,34 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
 export async function DELETE(req:NextRequest,{params}:{params:Promise<{id:string}>}){
     try {
         const {id}=await params
-        const user=getUserFromToken()
-        if (!user||user.role !== "employer") {
+        console.log(id);
+        
+        const user=await getUserFromToken()
+        if (!user || user.role !== "employer") {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+
+        }
+        connectDB()
+        const job=await jobModel.findById(id)
+        if (!job) {
+            return NextResponse.json({
+                error:"Job Not Found",
+                
+            },{status:404})
             
         }
+        if (job.employerId.toString()!=user.id) {
+            return NextResponse.json({error:"Forbiden- thats Not Your Job"},{status:403})
+            
+        }
+        await jobModel.findByIdAndDelete(id)
+        return NextResponse.json({message:"Job Deleted"},{status:200})
+
         
     } catch (error) {
+        console.log("Delete job error",error);
+        return  NextResponse.json({error:"Something Went Wrong"},{status:500})
+        
         
     }
 
