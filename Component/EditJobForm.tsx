@@ -48,7 +48,7 @@ export default function EditJobForm({ job }: { job: Job }) {
         }
         setLoading(true)
         try {
-            const res = await fetch('/api/job/job._id', {
+            const res = await fetch('/api/job/${job._id}', {
                 method: "PUT",
                 headers: { "Content-Typr": "application/json" },
                 body: JSON.stringify(validation.data)
