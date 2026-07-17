@@ -29,7 +29,7 @@ const EditJobPage = async({params}:{params:Promise<{id:string}>}) => {
   return (
      <div className="min-h-screen bg-gray-50 px-6 py-10 md:px-12">
       <div className="mx-auto max-w-2xl">
-        <h1 className="mb-8 text-2xl font-bold text-black-900">Edit Job</h1>
+        <h1 className="mb-8 text-2xl font-bold text-black">Edit Job</h1>
         <EditJobForm job={JSON.parse(JSON.stringify(job))} />
       </div>
     </div>
