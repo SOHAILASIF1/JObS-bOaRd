@@ -54,6 +54,9 @@ const Navbar = ({ role = null }: NavbarProps) => {
       <Link href="/dashboard/employer/jobs" className="hover:text-amber-400 transition-colors">
         My Listings
       </Link>
+      <Link href="/dashboard/employer" className="hover:text-amber-400 transition-colors">
+        Dashboard
+      </Link>
       <button
         onClick={handleLogout}
         className="rounded-md border border-neutral-700 px-4 py-1.5 text-sm hover:border-amber-400 hover:text-amber-400 transition-colors"
