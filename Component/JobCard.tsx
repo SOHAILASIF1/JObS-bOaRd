@@ -1,3 +1,6 @@
+import { Clock, DollarSign, MapPin, MapPinCheck } from 'lucide-react';
+import Link from 'next/link';
+import React from 'react'
 type Job={
     _id:string,
     title:string,
@@ -35,3 +38,52 @@ function formatSalary(min?: number, max?: number) {
   if (min && max) return `Rs. ${min.toLocaleString()} – ${max.toLocaleString()}`;
   return `Rs. ${(min ?? max)!.toLocaleString()}+`;
 }
+
+
+const JobCard = ({job}:{job:Job}) => {
+  return (
+     <Link
+      href={`/jobs/${job._id}`}
+      className="group block rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-md"
+    >
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex items-start gap-3">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 font-semibold">
+            {job.company.charAt(0).toUpperCase()}
+          </div>
+          <div>
+            <h2 className="font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
+              {job.title}
+            </h2>
+            <p className="text-sm text-gray-500">{job.company}</p>
+          </div>
+        </div>
+
+        <span
+          className={`shrink-0 rounded-full px-3 py-1 text-xs font-medium ${JOB_TYPE_STYLES[job.jobType]}`}
+        >
+          {job.jobType.replace("-", " ")}
+        </span>
+      </div>
+
+      <p className="mt-4 line-clamp-2 text-sm text-gray-600">{job.description}</p>
+
+      <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-gray-500">
+        <span className="flex items-center gap-1.5">
+          <MapPin className="h-3.5 w-3.5" />
+          {job.location}
+        </span>
+        <span className="flex items-center gap-1.5">
+          <DollarSign className="h-3.5 w-3.5" />
+          {formatSalary(job.salaryMin, job.salaryMax)}
+        </span>
+        <span className="flex items-center gap-1.5">
+          <Clock className="h-3.5 w-3.5" />
+          {timeAgo(job.createdAt)}
+        </span>
+      </div>
+    </Link>
+  )
+}
+
+export default JobCard
