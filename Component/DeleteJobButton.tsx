@@ -29,7 +29,14 @@ function DeleteJobButton({ jobId }: { jobId: string }) {
   }
 
   return (
-    
+    <button
+      onClick={handleDelete}
+      disabled={loading}
+      className="text-red-600 hover:underline disabled:opacity-50"
+    >
+      {loading ? "Deleting..." : "Delete"}
+    </button>
+
 
   )
 }
