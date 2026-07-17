@@ -70,7 +70,7 @@ export default async function EmployersJobPage() {
                     Edit
                   </Link>
                   <Link href={`/jobs/${job._id}`} className="text-gray-500 hover:underline">
-                    Delete
+                    View
                   </Link>
                 </div>
               </div>
