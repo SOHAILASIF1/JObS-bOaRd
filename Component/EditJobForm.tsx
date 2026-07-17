@@ -168,7 +168,7 @@ export default function EditJobForm({ job }: { job: Job }) {
                     value={formData.requirements}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:border-indigo-500 focus:outline-none"
+                    className="w-full rounded-lg border  text-black border-gray-300 p-2.5 text-sm focus:border-indigo-500 focus:outline-none"
                     required
                 />
             </div>
