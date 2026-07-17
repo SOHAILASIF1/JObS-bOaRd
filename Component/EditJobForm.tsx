@@ -81,7 +81,7 @@ export default function EditJobForm({ job }: { job: Job }) {
                     name="title"
                     value={formData.title}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:border-indigo-500 focus:outline-none"
+                    className="w-full  text-black rounded-lg border border-gray-300 p-2.5 text-sm focus:border-indigo-500 focus:outline-none"
                     required
                 />
             </div>
