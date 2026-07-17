@@ -1,7 +1,8 @@
 "use client"
 
-import { useRouter } from "next/router"
-import { useState } from "react"
+import { jobSchema } from "@/lib/validation/job"
+import { useRouter } from "next/navigation"
+import React, { useState } from "react"
 
 type Job = {
     _id: string,
@@ -35,7 +36,38 @@ export default function EditJobForm({ job }: { job: Job }) {
     ) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
-    const handleSubmit=async
+    const handleSubmit=async(e:React.FormEvent)=>{
+        e.preventDefault()
+        setError("")
+
+        const validation=jobSchema.safeParse(formData)
+        if (!validation.success) {
+            setError(validation.error.issues[0].message)
+            return
+            
+        }
+        setLoading(true)
+        try {
+            const res=await fetch('/api/job/job._id',{
+                method:"PUT",
+                headers:{"Content-Typr":"application/json"},
+                body:JSON.stringify(validation.data)
+            })
+            const data=await res.json()
+            if (!res.ok) {
+                setError(data.error || "Update Failed")
+                setLoading(false)
+                return
+                
+            }
+            router.push("/dashboard/employer/jobs")
+            router.refresh()
+            
+        } catch (error) {
+            
+        }
+
+    }
 
 
 }
