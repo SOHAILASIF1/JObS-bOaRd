@@ -62,7 +62,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
         const updatedJob = await jobModel.findByIdAndUpdate(id, { ...validation.data, status: "pending" }, { new: true })
         return NextResponse.json({ message: "job Updated" }, { status: 200 })
     } catch (error) {
-        console.error(err);
+        console.error(error);
         return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
 
     }
