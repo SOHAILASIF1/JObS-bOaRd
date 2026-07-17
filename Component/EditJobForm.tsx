@@ -144,7 +144,7 @@ export default function EditJobForm({ job }: { job: Job }) {
                         type="number"
                         value={formData.salaryMax}
                         onChange={handleChange}
-                        className="w-full rounded-lg border border-gray-300 p-2.5 text-sm focus:border-indigo-500 focus:outline-none"
+                        className="w-full rounded-lg border border-gray-300  text-black p-2.5 text-sm focus:border-indigo-500 focus:outline-none"
                     />
                 </div>
             </div>
