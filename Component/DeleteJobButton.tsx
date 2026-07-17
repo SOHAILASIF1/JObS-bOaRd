@@ -10,7 +10,7 @@ function DeleteJobButton({ jobId }: { jobId: string }) {
     if (!confirmed) return
     setLoading(true)
     try {
-      const res = await fetch(`api/job/${jobId}`, {
+      const res = await fetch(`/api/job/${jobId}`, {
         method: "DELETE"
       })
       const data = await res.json()
