@@ -1,3 +1,4 @@
+import DeleteJobButton from "@/Component/DeleteJobButton";
 import { connectDB } from "@/lib/dbConnection";
 import { getUserFromToken } from "@/lib/getUserFromToken";
 import jobModel from "@/models/jobModel";
@@ -69,9 +70,7 @@ export default async function EmployersJobPage() {
                   <Link href={`/dashboard/employer/jobs/${job._id}/edit`} className="text-indigo-600 hover:underline">
                     Edit
                   </Link>
-                  <Link href={`/jobs/${job._id}`} className="text-gray-500 hover:underline">
-                    View
-                  </Link>
+                  <DeleteJobButton jobId={job._id.toString()}/>
                 </div>
               </div>
             ))}
