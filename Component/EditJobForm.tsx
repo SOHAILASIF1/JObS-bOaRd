@@ -76,7 +76,7 @@ export default function EditJobForm({ job }: { job: Job }) {
             className="space-y-5 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
         >
             <div>
-                <label className="mb-1 block text-sm font-medium text-black-700">Title</label>
+                <label className="mb-1 block text-sm font-medium text-gray-700">Title</label>
                 <input
                     name="title"
                     value={formData.title}
