@@ -1,7 +1,10 @@
 
 
 import { connectDB } from '@/lib/dbConnection';
+import { formatSalary, timeAgo } from '@/lib/formatters';
 import jobModel from '@/models/jobModel';
+import { ArrowLeft, Briefcase, Building2, Clock, DollarSign, MapPin } from 'lucide-react';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react'
 
