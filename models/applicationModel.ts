@@ -8,7 +8,7 @@ const applicationSchema=new Schema({
     },
     candidateId:{
         type:Schema.Types.ObjectId,
-        ref:User,
+        ref:"User",
         required:true
     },
     resumeLink:{type:String,required:true},
