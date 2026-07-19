@@ -14,7 +14,7 @@ const applicationSchema=new Schema({
     resumeLink:{type:String,required:true},
     status:{
         type:String,
-        enum:["pending","rejected","shortlisted","hired"]
+        enum:["pending","rejected","shortlisted","hired"],
         default:"pending"
     }
 },{timestamps:true});
