@@ -41,6 +41,10 @@ export async function POST(req:NextRequest) {
       candidateId: user.id,
       resumeLink,
     });
+    return NextResponse.json(
+      { message: "Application submitted", application },
+      { status: 201 }
+    );
         
     } catch (error) {
         
