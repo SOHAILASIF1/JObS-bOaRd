@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { notFound, redirect } from 'next/navigation'
 import React from 'react'
 
-function ApplyPage({params}:{params:Promise<{id:string}>}) {
+async function ApplyPage({params}:{params:Promise<{id:string}>}) {
        const {id}=await params
        const user=await getUserFromToken()
        if (!user||user.role!=="candidate") {
