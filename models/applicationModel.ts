@@ -21,4 +21,4 @@ const applicationSchema=new Schema({
 
 
 applicationSchema.index({jobId:1,candidateId:1},{unique:true})
-export default models.Application||model("Appliction",applicationSchema)
+export default models.Application||model("Application",applicationSchema)
