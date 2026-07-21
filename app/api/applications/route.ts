@@ -1,6 +1,7 @@
 import { connectDB } from "@/lib/dbConnection";
 import { getUserFromToken } from "@/lib/getUserFromToken";
 import { applicationSchema } from "@/lib/validation/application";
+import applicationModel from "@/models/applicationModel";
 import jobModel from "@/models/jobModel";
 import { redirect } from "next/navigation";
 import { NextResponse } from "next/server";
@@ -47,7 +48,7 @@ export async function POST(req:NextRequest) {
     );
         
     } catch (error) {
-            console.error("Apply error:", err);
+            console.error("Apply error:", error);
     return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
         
     }
