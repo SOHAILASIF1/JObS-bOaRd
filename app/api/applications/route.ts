@@ -4,7 +4,7 @@ import { applicationSchema } from "@/lib/validation/application";
 import applicationModel from "@/models/applicationModel";
 import jobModel from "@/models/jobModel";
 import { redirect } from "next/navigation";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req:NextRequest) {
     try {
