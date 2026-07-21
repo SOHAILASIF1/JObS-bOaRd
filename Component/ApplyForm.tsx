@@ -1,9 +1,10 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 
 const ApplyForm = ({ jobId }: { jobId: string }) => {
   return (
-    <div>ApplyForm</div>
+    const [resumeLink,setResumeLink]=useState("")
+    
   )
 }
 
