@@ -1,3 +1,4 @@
+import ApplyForm from '@/Component/ApplyForm'
 import { connectDB } from '@/lib/dbConnection'
 import { getUserFromToken } from '@/lib/getUserFromToken'
 import applicationModel from '@/models/applicationModel'
