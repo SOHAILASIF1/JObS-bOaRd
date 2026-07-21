@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 
-const ApplyForm = () => {
+const ApplyForm = ({ jobId }: { jobId: string }) => {
   return (
     <div>ApplyForm</div>
   )
