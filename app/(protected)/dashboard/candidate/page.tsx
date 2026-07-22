@@ -139,5 +139,18 @@ async function CandidateDashboard() {
     
   )
 }
+function StatCard({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+  return (
+    <div className="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition hover:border-indigo-300 hover:shadow-md sm:p-5">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gray-50 sm:h-12 sm:w-12">
+        {icon}
+      </div>
+      <div>
+        <p className="text-xs text-gray-500 sm:text-sm">{label}</p>
+        <p className="text-lg font-semibold text-gray-900 sm:text-xl">{value}</p>
+      </div>
+    </div>
+  );
+}
 
 export default CandidateDashboard
