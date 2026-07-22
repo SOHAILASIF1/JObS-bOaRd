@@ -23,7 +23,7 @@ async function ApplyPage({params}:{params:Promise<{id:string}>}) {
        }
        const alreadyApplied=await applicationModel.findOne({
         jobId:id,
-        candidate:user.id
+        candidateId:user.id
        })
 
   return (
