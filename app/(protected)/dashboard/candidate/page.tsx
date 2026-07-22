@@ -17,11 +17,16 @@ async function CandidateDashboard() {
         
     }
     await connectDB()
-    const applocations=await applicationModel.find({
+    const applications=await applicationModel.find({
       candidateId:user.id
       
     }).populate("jobId").sort({createdAt:-1}).lean()
+    const total=applications.length
+    const pending=applications.filter((a:any)=>a.status==="pending").length
+    const hired=applications.filter((a:any)=>a.status==="hired")
+    const shortlisted=applications.filter((a:any)=>a.status==="shortlisted").length
 
+    const recentApplications=applications.slice(0,3)
   return (
     
   )
