@@ -1,6 +1,9 @@
 import { connectDB } from '@/lib/dbConnection';
+import { formatSalary, timeAgo } from '@/lib/formatters';
 import { getUserFromToken } from '@/lib/getUserFromToken';
 import applicationModel from '@/models/applicationModel';
+import { ArrowRight, Briefcase, CheckCircle2, Clock, Search } from 'lucide-react';
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React from 'react'
 const STATUS_STYLES: Record<string, string> = {
