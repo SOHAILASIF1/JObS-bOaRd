@@ -1,5 +1,6 @@
 import { connectDB } from '@/lib/dbConnection';
 import { getUserFromToken } from '@/lib/getUserFromToken';
+import applicationModel from '@/models/applicationModel';
 import { redirect } from 'next/navigation';
 import React from 'react'
 const STATUS_STYLES: Record<string, string> = {
@@ -16,9 +17,13 @@ async function CandidateDashboard() {
         
     }
     await connectDB()
+    const applocations=await applicationModel.find({
+      candidateId:user.id
+      
+    }).populate("jobId").sort({createdAt:-1}).lean()
 
   return (
-    <div>page</div>
+    
   )
 }
 
