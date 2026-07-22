@@ -1,4 +1,6 @@
+import { connectDB } from '@/lib/dbConnection';
 import { getUserFromToken } from '@/lib/getUserFromToken';
+import { redirect } from 'next/navigation';
 import React from 'react'
 const STATUS_STYLES: Record<string, string> = {
   pending: "bg-amber-100 text-amber-700",
@@ -9,6 +11,11 @@ const STATUS_STYLES: Record<string, string> = {
 
 async function CandidateDashboard() {
     const user =await getUserFromToken()
+    if (!user ||user.role!=="candidate") {
+        redirect("/login")
+        
+    }
+    await connectDB()
 
   return (
     <div>page</div>
