@@ -13,4 +13,4 @@ async function CandidateDashboard() {
   )
 }
 
-export default page
+export default CandidateDashboard
