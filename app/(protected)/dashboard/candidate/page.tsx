@@ -1,3 +1,4 @@
+import { getUserFromToken } from '@/lib/getUserFromToken';
 import React from 'react'
 const STATUS_STYLES: Record<string, string> = {
   pending: "bg-amber-100 text-amber-700",
@@ -7,6 +8,7 @@ const STATUS_STYLES: Record<string, string> = {
 };
 
 async function CandidateDashboard() {
+    const user =await getUserFromToken()
 
   return (
     <div>page</div>
