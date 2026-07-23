@@ -14,7 +14,8 @@ const FILTERS = ["all", "pending", "shortlisted", "hired", "rejected"] as const;
 
 
 function MyApplicationsPage({searchParams}:{searchParams:Promise<{status:string}>}) {
-  await  console.log(searchParams);
+  const params=await searchParams
+  log
    
     
   return (
