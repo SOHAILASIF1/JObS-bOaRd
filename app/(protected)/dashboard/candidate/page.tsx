@@ -2,6 +2,7 @@ import { connectDB } from '@/lib/dbConnection';
 import { formatSalary, timeAgo } from '@/lib/formatters';
 import { getUserFromToken } from '@/lib/getUserFromToken';
 import applicationModel from '@/models/applicationModel';
+import jobModel from '@/models/jobModel';
 import { ArrowRight, Briefcase, CheckCircle2, Clock, Search } from 'lucide-react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
