@@ -1,4 +1,5 @@
 
+import { createParamsFromClient } from 'next/dist/server/request/params';
 import React from 'react'
 
 
@@ -15,6 +16,10 @@ const FILTERS = ["all", "pending", "shortlisted", "hired", "rejected"] as const;
 
 async function MyApplicationsPage({searchParams}:{searchParams:Promise<{status:string}>}) {
   const params=await searchParams
+  console.log(params);
+  console.log(params.status);
+  
+  
   
    
     
