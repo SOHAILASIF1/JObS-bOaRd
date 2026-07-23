@@ -1,7 +1,7 @@
 import { getUserFromToken } from "@/lib/getUserFromToken";
 import { connectDB } from "@/lib/dbConnection";
 import applicationModel from "@/models/applicationModel";
-import jobModel from "@/models/jobModel"; // populate ke liye register hona zaroori
+import "@/models/jobModel"; // populate ke liye register hona zaroori
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Briefcase, Search } from "lucide-react";
