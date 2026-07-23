@@ -13,7 +13,7 @@ const STATUS_STYLES: Record<string, string> = {
 const FILTERS = ["all", "pending", "shortlisted", "hired", "rejected"] as const;
 
 
-function MyApplicationsPage() {
+function MyApplicationsPage({searchParams}:{searchParams:Promise<{status:string}>}) {
   return (
     <div>page</div>
   )
