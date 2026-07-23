@@ -2,7 +2,7 @@ import { connectDB } from '@/lib/dbConnection';
 import { formatSalary, timeAgo } from '@/lib/formatters';
 import { getUserFromToken } from '@/lib/getUserFromToken';
 import applicationModel from '@/models/applicationModel';
-import jobModel from '@/models/jobModel';
+import "@/models/jobModel";   // 👈 sirf side-effect ke liye — bundler ise kabhi nahi hataega
 import { ArrowRight, Briefcase, CheckCircle2, Clock, Search } from 'lucide-react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
