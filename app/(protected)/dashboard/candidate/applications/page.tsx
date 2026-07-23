@@ -13,9 +13,9 @@ const STATUS_STYLES: Record<string, string> = {
 const FILTERS = ["all", "pending", "shortlisted", "hired", "rejected"] as const;
 
 
-function MyApplicationsPage({searchParams}:{searchParams:Promise<{status:string}>}) {
+async function MyApplicationsPage({searchParams}:{searchParams:Promise<{status:string}>}) {
   const params=await searchParams
-  log
+  
    
     
   return (
